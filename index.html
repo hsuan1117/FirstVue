@@ -14,58 +14,17 @@
 	</body>
 
 	<script>
-		var $nb = new HNoteBook()
-		var NoteBookApp = new Vue({
+		var App = new Vue({
 			el: "#app",
 			data: {
-				notes: [],
-				notSupport: false,
-				activeNames: []
+				
 			},
 			created: function() {
 
 			},
 			methods: {
-				saveAll() {
-					$nb.saveAll()
-					this.$message({
-						type: 'success',
-						message: '儲存成功!'
-					});
-				},
-				newNote(){
-					this.notes.push({
-						name: "未命名的記事本",
-						time: new Date().toLocaleString()
-					})
-					this.$message({
-						type: 'success',
-						message: '新增成功!'
-					});
-				},
-				rmNote(i) {
-					this.$confirm('刪除後無法復原，確定繼續?', 'Warning', {
-						confirmButtonText: '對的!',
-						cancelButtonText: '取消',
-						type: 'warning'
-					}).then(() => {
-						this.$delete(this.notes,i)
-						this.$message({
-							type: 'success',
-							message: '刪除成功!'
-						});
-						$nb.saveAll()
-					}).catch(() => {
-						this.$message({
-							type: 'info',
-							message: '取消刪除'
-						});
-					});
-				}
+				
 			}
-		})
-		$(document).ready(function() {
-			$nb.getData()
 		})
 	</script>
 </html>
